@@ -98,7 +98,9 @@
     methods: {
       ...mapActions(['logout']),
       dangxuat() {
+        const loading = this.loadingStart();
         this.logout().then(() => {
+          loading.close();
           this.$router.push({name:'login'});
         })
       },

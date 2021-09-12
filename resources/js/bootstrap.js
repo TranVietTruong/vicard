@@ -18,10 +18,30 @@ try {
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-axios = require('axios')
+
+
+// axios = require('axios')
+
+import axios from 'axios'
+import { setupCache } from 'axios-cache-adapter'
+
+// Create `axios-cache-adapter` instance
+const cache = setupCache({
+    maxAge: 3600 * 60 * 1000,
+    invalidate: async (config, request) => {
+        if (request.url === 'auth/logout') {
+            await config.store.clear()
+        }
+    },
+    readOnError: (error, request) => {
+        return error.response.status >= 400 && error.response.status < 600
+    },
+})
+
 window.axios = axios.create({
     baseURL: '/api/v1.0/',
-    timeout: 3000
+    timeout: 3000,
+    adapter: cache.adapter
 });
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

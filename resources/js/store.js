@@ -62,7 +62,7 @@ const store = new Vuex.Store({
       return await axios.post('auth/register', data);
     },
     async logout({commit}) {
-      await axios.post('auth/logout').then((res) => {
+      await axios.post('auth/logout', { clearCacheEntry: true }).then((res) => {
         commit('setToken', null);
         commit('setUser', null);
       })
