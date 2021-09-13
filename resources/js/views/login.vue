@@ -22,7 +22,7 @@
             <p class="login__label">Mật khẩu <span class="text-danger">*</span></p>
             <el-form-item prop="password">
               <el-input
-                @keyup.enter.native="handleEnter(1)"
+                @keyup.enter.native="loginForm"
                 placeholder="Nhập mật khẩu"
                 type="password"
                 v-model="form.password"></el-input>
@@ -54,7 +54,7 @@
             Nhập email
             <span class="text-danger">*</span>
           </p>
-          <el-input @keyup.enter.native="handleEnter(0)" v-model="formForgetPassword.email" placeholder="Nhập email" autocomplete="off"></el-input>
+          <el-input v-model="formForgetPassword.email" placeholder="Nhập email" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -102,13 +102,6 @@
     },
     methods: {
       ...mapActions(['attempt']),
-      handleEnter(flag = 1){
-        if(flag) {
-          this.loginForm();
-        } else {
-          this.forgetPassword();
-        }
-      },
       loginForm() {
         this.$refs['formLogin'].validate((valid) => {
           if (valid) {
