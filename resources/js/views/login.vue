@@ -17,16 +17,15 @@
             <el-form-item prop="email">
               <el-input
                 placeholder="Nhập email"
-                v-model="form.email"
-                autocomplete="off"></el-input>
+                v-model="form.email"></el-input>
             </el-form-item>
             <p class="login__label">Mật khẩu <span class="text-danger">*</span></p>
             <el-form-item prop="password">
               <el-input
+                @keyup.enter.native="loginForm"
                 placeholder="Nhập mật khẩu"
                 type="password"
-                v-model="form.password"
-                autocomplete="off"></el-input>
+                v-model="form.password"></el-input>
             </el-form-item>
             <div>
               <p @click="dialogFormForgetPassword = true"
@@ -55,7 +54,7 @@
             Nhập email
             <span class="text-danger">*</span>
           </p>
-          <el-input v-model="formForgetPassword.email" placeholder="Nhập email" autocomplete="off"></el-input>
+          <el-input @keyup.enter.native="forgetPassword" v-model="formForgetPassword.email" placeholder="Nhập email" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -63,10 +62,6 @@
         <el-button size="mini" :loading="loadingForget" type="primary" @click="forgetPassword" icon="el-icon-save">Lưu</el-button>
       </span>
     </el-dialog>
-<!--    <div class="end">-->
-<!--      <h3>CardMaster</h3>-->
-<!--      <p>Danh thiếp điện tử đầu tiên tại Việt Nam</p>-->
-<!--    </div>-->
   </div>
 </template>
 

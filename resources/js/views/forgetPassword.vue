@@ -19,11 +19,11 @@
             </el-form-item>
             <p class="login__label">Nhập lại mật khẩu</p>
             <el-form-item prop="re_password">
-              <el-input type="password" v-model="form.re_password" autocomplete="off"></el-input>
+              <el-input @keyup.enter.native="changePassword" type="password" v-model="form.re_password" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item>
               <el-row type="flex" justify="center">
-                <el-button @click="loginForm" :loading="loading" type="primary">Xác nhận</el-button>
+                <el-button @click="changePassword" :loading="loading" type="primary">Xác nhận</el-button>
               </el-row>
             </el-form-item>
           </el-form>
@@ -75,7 +75,7 @@
       this.checkToken(token)
     },
     methods: {
-      loginForm() {
+      changePassword() {
         this.$refs['resetPassword'].validate((valid) => {
           if (valid) {
             axios.post('reset-password', {password: this.form.password, token: this.token}).then((res) => {
