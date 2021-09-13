@@ -532,7 +532,6 @@
 
   @media only screen and (max-width: 600px) {
     .el-dialog {
-      margin-top: 20vh !important;
       width: 95%;
     }
   }
