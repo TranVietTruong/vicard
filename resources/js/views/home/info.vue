@@ -47,12 +47,13 @@
         <p v-show="userInfo.infoContact && !userInfo.infoContact.length"  class="text-center">Không có dữ liệu !</p>
         <draggable
           v-model="userInfo.infoContact"
-          @update="orderInfoContact">
+          @update="orderInfoContact"
+          handle=".handle">
           <div
             v-for="(item,index) in userInfo.infoContact"
             :key="'infoContact'+index"
             class="info">
-            <div class="info_left draggable">
+            <div class="info_left handle">
               <div class="info_icon">
                 <img :src="'assets/icon/' + item.key +'.png'">
               </div>
@@ -504,6 +505,7 @@
   .info_left {
     display: flex;
     align-items: center;
+    min-width: 70%;
   }
   .info_right {
     min-width: 75px;
