@@ -22,7 +22,7 @@
             <p class="login__label">Mật khẩu <span class="text-danger">*</span></p>
             <el-form-item prop="password">
               <el-input
-                @keyup.enter.native="loginForm"
+                @keyup.enter.native="handleEnter(1)"
                 placeholder="Nhập mật khẩu"
                 type="password"
                 v-model="form.password"></el-input>
@@ -54,12 +54,12 @@
             Nhập email
             <span class="text-danger">*</span>
           </p>
-          <el-input @keyup.enter.native="forgetPassword" v-model="formForgetPassword.email" placeholder="Nhập email" autocomplete="off"></el-input>
+          <el-input @keyup.enter.native="handleEnter(0)" v-model="formForgetPassword.email" placeholder="Nhập email" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button size="mini" @click="dialogFormForgetPassword = false" icon="el-icon-close">Hủy</el-button>
-        <el-button size="mini" :loading="loadingForget" type="primary" @click="forgetPassword" icon="el-icon-save">Lưu</el-button>
+        <el-button size="mini" :loading="loadingForget" type="primary" @click="forgetPassword" icon="el-icon-save">Xác nhận</el-button>
       </span>
     </el-dialog>
   </div>
@@ -102,6 +102,13 @@
     },
     methods: {
       ...mapActions(['attempt']),
+      handleEnter(flag = 1){
+        if(flag) {
+          this.loginForm();
+        } else {
+          this.forgetPassword();
+        }
+      },
       loginForm() {
         this.$refs['formLogin'].validate((valid) => {
           if (valid) {

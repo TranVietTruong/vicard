@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <small>Bản quyền thuộc về zcard.me</small>
+    <small>Bản quyền thuộc về vicard.vn</small>
   </div>
 </template>
 
