@@ -118,7 +118,7 @@ export default {
           this.register(this.form).then(async res => {
             await this.getUser(res.data.data);
             this.loadingRegister = false;
-            this.$router.push({name:'listProduct'});
+            this.$router.push({name:'listTemplate'});
           })
           .catch(error => {
             this.$message({

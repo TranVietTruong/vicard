@@ -62,12 +62,12 @@ export const routes = [
         component: Info,
         beforeEnter: isAuthenticated,
       },
-      {
-        path: 'send-noti',
-        name: 'sendNoti',
-        component: sendNoti,
-        beforeEnter: isAuthenticated,
-      }
+      // {
+      //   path: 'send-noti',
+      //   name: 'sendNoti',
+      //   component: sendNoti,
+      //   beforeEnter: isAuthenticated,
+      // }
     ]
   },
   {

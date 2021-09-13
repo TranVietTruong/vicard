@@ -23,10 +23,10 @@
                 @click="$route.name === 'listTemplate' ? '':$router.push({name:'listTemplate'},visible = false)"
                 :class="$route.name === 'listTemplate' ? 'header_user_menu_item active':'header_user_menu_item'">
                 Đổi mẫu website</div>
-              <div
-                @click="$route.name === 'sendNoti' ? '':$router.push({name:'sendNoti'},visible = false)"
-                :class="$route.name === 'sendNoti' ? 'header_user_menu_item active':'header_user_menu_item'">
-                Gửi thông báo</div>
+<!--              <div-->
+<!--                @click="$route.name === 'sendNoti' ? '':$router.push({name:'sendNoti'},visible = false)"-->
+<!--                :class="$route.name === 'sendNoti' ? 'header_user_menu_item active':'header_user_menu_item'">-->
+<!--                Gửi thông báo</div>-->
               <div @click="dialogFormVisible = true, visible = false" class="header_user_menu_item">Đổi mật khẩu</div>
               <div @click="dangxuat" class="header_user_menu_item">Đăng xuất</div>
             </div>
