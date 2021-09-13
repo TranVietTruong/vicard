@@ -11,32 +11,29 @@
           </div>
         </template>
         <p v-show="userInfo.infoPersonal && !userInfo.infoPersonal.length"  class="text-center">Không có dữ liệu !</p>
-        <draggable v-model="userInfo.infoPersonal" @update="orderInfoPersonal">
-          <div
-            v-for="(item,index) in userInfo.infoPersonal"
-            :key="'infoPersonal'+index"
-            class="info">
-            <div class="info_left">
-              <div class="info_icon">
-                <img :src="'assets/icon/'+item.key + '.png'">
-              </div>
-              <div class="info_detail">
-                {{item.info}}
-              </div>
+        <div
+          v-for="(item,index) in userInfo.infoPersonal"
+          :key="'infoPersonal'+index"
+          class="info">
+          <div class="info_left">
+            <div class="info_icon">
+              <img :src="'assets/icon/'+item.key + '.png'">
             </div>
-            <div class="info_right">
-              <el-button
-                size="mini"
-                @click="handleEdit(item)"
-                icon="el-icon-edit"></el-button>
-              <el-button
-                size="mini"
-                @click="deleteUserInfo(item.id, item.type, index)"
-                icon="el-icon-delete"></el-button>
+            <div class="info_detail">
+              {{item.info}}
             </div>
           </div>
-        </draggable>
-
+          <div class="info_right">
+            <el-button
+              size="mini"
+              @click="handleEdit(item)"
+              icon="el-icon-edit"></el-button>
+            <el-button
+              size="mini"
+              @click="deleteUserInfo(item.id, item.type, index)"
+              icon="el-icon-delete"></el-button>
+          </div>
+        </div>
         <div class="add_info">
           <el-button @click="handleAddInfoPersonal" type="primary" icon="el-icon-plus"> Thêm </el-button>
         </div>
@@ -48,12 +45,14 @@
           </div>
         </template>
         <p v-show="userInfo.infoContact && !userInfo.infoContact.length"  class="text-center">Không có dữ liệu !</p>
-        <draggable v-model="userInfo.infoContact" @update="orderInfoContact">
+        <draggable
+          v-model="userInfo.infoContact"
+          @update="orderInfoContact">
           <div
             v-for="(item,index) in userInfo.infoContact"
             :key="'infoContact'+index"
             class="info">
-            <div class="info_left">
+            <div class="info_left draggable">
               <div class="info_icon">
                 <img :src="'assets/icon/' + item.key +'.png'">
               </div>
@@ -64,11 +63,11 @@
             <div class="info_right">
               <el-button
                 size="mini"
-                @click="handleEdit(item)"
+                @click.native="handleEdit(item)"
                 icon="el-icon-edit"></el-button>
               <el-button
                 size="mini"
-                @click="deleteUserInfo(item.id, item.type, index)"
+                @click.native="deleteUserInfo(item.id, item.type, index)"
                 icon="el-icon-delete"></el-button>
             </div>
           </div>
