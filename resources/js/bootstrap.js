@@ -38,7 +38,7 @@ const cache = setupCache({
 window.axios = axios.create({
     baseURL: '/api/v1.0/',
     timeout: 3000,
-    adapter: cache.adapter
+    // adapter: cache.adapter
 });
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
