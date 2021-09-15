@@ -38,16 +38,15 @@ class VcardController extends Controller
                 $vCard->addEmail($data['email']['info']);
             }
             if(isset($data['mobilephone'])) {
-                $vCard->addPhoneNumber($data['mobilephone']['info'], 'WORK');
                 $vCard->addPhoneNumber($data['mobilephone']['info'], 'CELL');
             }
             if(isset($data['facebook'])) {
                 $vCard->addURL($data['facebook']['info']);
             }
             if(isset($data['avatar'])) {
-//                $vCard->addPhoto($data['avatar']['info']);
+                $vCard->addPhoto($data['avatar']['info']);
             }
-            return $vCard->download();
+            echo  $vCard->download();
         }
         catch (\Exception $e)
         {

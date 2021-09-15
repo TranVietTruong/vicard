@@ -27,15 +27,12 @@ import { setupCache } from 'axios-cache-adapter'
 
 // Create `axios-cache-adapter` instance
 const cache = setupCache({
-    maxAge: 3600 * 60 * 1000,
+    maxAge: 15 * 60 * 1000,
     invalidate: async (config, request) => {
-        if (request.url === 'auth/logout') {
+        if (request.method === 'post') {
             await config.store.clear()
         }
-    },
-    readOnError: (error, request) => {
-        return error.response.status >= 400 && error.response.status < 600
-    },
+    }
 })
 
 window.axios = axios.create({
