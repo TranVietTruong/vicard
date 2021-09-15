@@ -23,22 +23,11 @@ try {
 // axios = require('axios')
 
 import axios from 'axios'
-import { setupCache } from 'axios-cache-adapter'
 
-// Create `axios-cache-adapter` instance
-const cache = setupCache({
-    maxAge: 15 * 60 * 1000,
-    invalidate: async (config, request) => {
-        if (request.method === 'post') {
-            await config.store.clear()
-        }
-    }
-})
 
 window.axios = axios.create({
     baseURL: '/api/v1.0/',
-    timeout: 3000,
-    // adapter: cache.adapter
+    timeout: 3000
 });
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
