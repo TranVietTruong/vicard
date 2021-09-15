@@ -44,7 +44,7 @@ class VcardController extends Controller
                 $vCard->addURL($data['facebook']['info']);
             }
             if(isset($data['avatar'])) {
-                $vCard->addPhoto($data['avatar']['info']);
+                $vCard->addPhoto($data['avatar']['info'], false);
             }
             echo  $vCard->download();
         }
