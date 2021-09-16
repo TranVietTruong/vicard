@@ -13,7 +13,7 @@
     <div class="header" style="border-bottom: 0.5px solid #070707; padding-bottom: 2px">
         <div class="header-content" style="display: flex; align-items: center; padding-bottom: 10px; border-bottom: 2px solid #070707;">
             <img style="width: 100px; margin-left: -3px" src="https://res.cloudinary.com/truongtv/image/upload/v1631778979/logo/yqbfngewf7meym3n0wp2.png" alt="">
-            <div class="text-header" style="color: #364560;line-height: 17px;text-align: right;margin-left: auto;">
+            <div class="text-header" style="color: #364560;text-align: right;margin-left: auto;">
                 <span>Danh thiếp điện tử đầu tiên tại Việt Nam</span>
             </div>
         </div>
