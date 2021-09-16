@@ -21,7 +21,7 @@ class ForgetPassword extends Mailable
 
     public function __construct($userName, $token)
     {
-        $this->subject('QUÊN MẬT KHẨU');
+        $this->subject('VICARD - QUÊN MẬT KHẨU');
         $this->userName = $userName;
         $this->token = $token;
     }

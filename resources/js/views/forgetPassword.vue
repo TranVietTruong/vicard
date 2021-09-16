@@ -30,7 +30,7 @@
         </el-card>
       </el-col>
     </el-row>
-    <p class="text-center reserved">©2020 mecard.vn - All rights reserved.</p>
+    <p class="text-center reserved">©2021 vicard.vn - All rights reserved.</p>
   </div>
 </template>
 

@@ -21,12 +21,12 @@
     <div class="content" style="padding-top: 18px; padding-bottom: 24px">
         <div class="description" style="line-height: 18px; color: #172948; margin-bottom: 14px">
             <div>
-                Xin chào <span style="font-weight: bold;">{{ $userName }}</span>
+                Xin chào <span style="font-weight: bold;">{ $userName }}</span>
             </div>
             <div>Bạn hãy nhấn vào nút sau để đặt lại mật khẩu:</div>
         </div>
         <div class="link">
-            <a href="http://45.118.145.49/forget-password?token={{ $token }}" target="_blank" style="background: #4086FF; color: #fff; width: 250px; height: 30px; text-align: center; line-height: 30px; display: block; margin-top: 16px; border-radius: 20px; text-decoration: none;">Đặt lại mật khẩu</a>
+            <a href="http://45.118.145.49/forget-password?token={ $token }}" target="_blank" style="background: #4086FF; color: #fff; width: 250px; height: 30px; text-align: center; line-height: 30px; display: block; margin-top: 16px; border-radius: 20px; text-decoration: none;">Đặt lại mật khẩu</a>
         </div>
         <div class="reguard" style="margin-top: 15px; line-height: 16px;">
             <div>Nếu bạn cần hỗ trợ trong quá trình sử dụng dịch vụ VICARD, vui lòng liên hệ:</div>
