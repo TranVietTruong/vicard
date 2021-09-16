@@ -30,7 +30,7 @@
         </div>
         <div class="reguard" style="margin-top: 15px; line-height: 16px;">
             <div>Nếu bạn cần hỗ trợ trong quá trình sử dụng dịch vụ VICARD, vui lòng liên hệ:</div>
-            <div>Email: vicard@gmail.com</div>
+            <div>Email: vicard.vn@gmail.com</div>
         </div>
         <div style="margin-top: 16px; font-size: 11px">
             Trân trọng !
