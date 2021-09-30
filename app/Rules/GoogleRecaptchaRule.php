@@ -27,14 +27,14 @@ class GoogleRecaptchaRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        $googleRecaptchaSecret = env('GOOGLE_RECAPTCHA_SECRET');
+//        $googleRecaptchaSecret = env('GOOGLE_RECAPTCHA_SECRET');
+        $googleRecaptchaSecret = '6Lfy2p8bAAAAAJcW7rJ_6afj8EK87DtFoJWBDMKL';
 //        $googleRecaptchaApi = 'https://www.google.com/recaptcha/api/siteverify?secret='.$googleRecaptchaSecret.'&response='.$value. "&remoteip=" . rawurlencode($_SERVER['REMOTE_ADDR']);
         $googleRecaptchaApi = 'https://www.google.com/recaptcha/api/siteverify';
         $response = Http::asForm()->post($googleRecaptchaApi, [
             'secret' => $googleRecaptchaSecret,
             'response' => $value
         ])->body();
-        dd($response);
         return json_decode($response)->success;
     }
 
