@@ -29,7 +29,7 @@ class GoogleRecaptchaRule implements Rule
     {
         $googleRecaptchaSecret = env('GOOGLE_RECAPTCHA_SECRET');
         $googleRecaptchaApi = 'https://www.google.com/recaptcha/api/siteverify?secret='.$googleRecaptchaSecret.'&response='.$value;
-        $response = Http::get($googleRecaptchaApi)->body();
+        $response = Http::post($googleRecaptchaApi)->body();
         return (boolean)json_decode($response)->success;
     }
 
