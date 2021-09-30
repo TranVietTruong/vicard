@@ -34,7 +34,8 @@ class GoogleRecaptchaRule implements Rule
             'secret' => $googleRecaptchaSecret,
             'response' => $value
         ])->body();
-        return (boolean)json_decode($response)->success;
+        dd($response);
+        return json_decode($response)->success;
     }
 
     /**
