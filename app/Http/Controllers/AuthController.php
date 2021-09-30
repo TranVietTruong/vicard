@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\CodeTag;
 use App\Models\User;
 use App\Services\Response;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Webpatser\Uuid\Uuid;
 
