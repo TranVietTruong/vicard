@@ -28,8 +28,7 @@ class RegisterRequest extends BaseRequest
             'email' => 'required|unique:users|email:rfc,dns|max:50',
             'password' => 'required|min:6|max:20',
             'code_tag' => 'required|min:6|max:10',
-//            'captcha' => ['required', new GoogleRecaptchaRule()]
-            'captcha' => 'required'
+            'captcha' => ['required', new GoogleRecaptchaRule()]
         ];
     }
 
