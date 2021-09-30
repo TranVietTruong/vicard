@@ -28,7 +28,7 @@ class GoogleRecaptchaRule implements Rule
     public function passes($attribute, $value)
     {
         $googleRecaptchaSecret = env('GOOGLE_RECAPTCHA_SECRET');
-        $googleRecaptchaApi = 'https://www.google.com/recaptcha/api/siteverify?secret='.$googleRecaptchaSecret.'&response='.$value;
+        $googleRecaptchaApi = 'https://www.google.com/recaptcha/api/siteverify?secret='.$googleRecaptchaSecret.'&response='.$value. "&remoteip=" . $_SERVER['REMOTE_ADDR'];
         $response = Http::get($googleRecaptchaApi)->body();
         return (boolean)json_decode($response)->success;
     }
