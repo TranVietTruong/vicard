@@ -38,6 +38,14 @@ class AuthController extends Controller
         {
             $data = $request->all();
 
+            $googleRecaptchaSecret = env('GOOGLE_RECAPTCHA_SECRET');
+            $googleRecaptchaApi = 'https://www.google.com/recaptcha/api/siteverify?secret='.$googleRecaptchaSecret.'&response='.$data['captcha'];
+            $response = Http::get($googleRecaptchaApi)->body();
+            $checkCaptcha = (boolean)json_decode($response)->success;
+            if(!$checkCaptcha) {
+                return Response::error('Captcha không hợp lệ', 400);
+            }
+
             $codeTag = CodeTag::where('code_tag', $data['code_tag'])->first();
             if(!$codeTag) {
                 return Response::error('Mã thẻ không tồn tại', 400);

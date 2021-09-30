@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8330937b41220d52ed2a56ff2cbb809",
+    "content-hash": "138483491c19cb4493f9ce83310d4be7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2737,6 +2737,55 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "rogersxd/vcard",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rogersxd/vcard.git",
+                "reference": "b8655566857ef7868ef66cf32a700ba9fc1d7396"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rogersxd/vcard/zipball/b8655566857ef7868ef66cf32a700ba9fc1d7396",
+                "reference": "b8655566857ef7868ef66cf32a700ba9fc1d7396",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.2.*"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Rogersxd\\VCard\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rogers Corrêa",
+                    "email": "rogersgbc@gmail.com"
+                }
+            ],
+            "description": "Generate vCards fast.",
+            "keywords": [
+                "laravel",
+                "php",
+                "vCard",
+                "vcf"
+            ],
+            "support": {
+                "issues": "https://github.com/rogersxd/vcard/issues",
+                "source": "https://github.com/rogersxd/vcard/tree/master"
+            },
+            "time": "2018-07-16T14:51:10+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
