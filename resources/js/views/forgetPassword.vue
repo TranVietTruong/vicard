@@ -78,6 +78,7 @@
       changePassword() {
         this.$refs['resetPassword'].validate((valid) => {
           if (valid) {
+            this.loading = true;
             axios.post('reset-password', {password: this.form.password, token: this.token}).then((res) => {
               this.$notify({
                 message: 'Đặt lại mật khẩu thành công',
