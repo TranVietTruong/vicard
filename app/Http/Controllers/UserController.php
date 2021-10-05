@@ -175,7 +175,7 @@ class UserController extends Controller
 
         $minus = Carbon::now('Asia/Ho_Chi_Minh')->diffInMinutes($user->forget_password_at);
 
-        if($minus > 1) {
+        if($minus > 15) {
             return Response::error('Hết hạn thời gian đặt lại mật khẩu', 400);
         }
 
