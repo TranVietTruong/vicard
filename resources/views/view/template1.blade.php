@@ -91,7 +91,7 @@
         }
 
         .save_contact img {
-            width: 30px;
+            width: 25px;
             height: 100%;
             border-radius: inherit;
         }
