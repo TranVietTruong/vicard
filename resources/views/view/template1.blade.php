@@ -79,9 +79,9 @@
             display: block;
         }
 
-        span.title {
-            font-size: 1.1875em;
-            font-weight: 700;
+        .span12 {
+            font-size: 13px;
+            font-weight: normal;
         }
 
 
@@ -140,9 +140,11 @@
                             <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
 
                             <div style="margin-left: 3px;">
-                                <span class="title">Ngân hàng: {{$value->info}}</span>
-                                <span>Chủ tài khoản: {{$value->info1}}</span>
-                                <span>Số tài khoản: {{$value->info2}}</span>
+                                <a>
+                                <span class="title">{{$value->info}}</span>
+                                <span class="span12">Chủ tài khoản: {{$value->info1}}</span>
+                                <span class="span12">Số tài khoản: {{$value->info2}}</span>
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -152,8 +154,10 @@
                             <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
 
                             <div style="margin-left: 3px;">
-                                <span class="title">{{$value->info}}</span>
-                                <span style="font-size: 13px;">{{$value->info1}}</span>
+                                <a>
+                                    <span class="title">{{$value->info}}</span>
+                                    <span class="span12">{{$value->info1}}</span>
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -163,8 +167,10 @@
                             <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
 
                             <div style="margin-left: 3px;">
-                                <span class="title">Email</span>
-                                <span>{{$value->info}}</span>
+                                <a href="mailto:{{$value->info}}">
+                                    <span class="title">Email</span>
+                                    <span class="span12">{{$value->info}}</span>
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -174,8 +180,10 @@
                             <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
 
                             <div style="margin-left: 3px;">
-                                <span class="title">Số điện thoại</span>
-                                <span>{{$value->info}}</span>
+                                <a href="tel:{{$value->info}}">
+                                    <span class="title">Số điện thoại</span>
+                                    <span class="span12">{{$value->info}}</span>
+                                </a>
                             </div>
                         </li>
                     </ul>
