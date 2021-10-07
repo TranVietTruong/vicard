@@ -137,10 +137,40 @@
             </el-option>
           </el-select>
         </el-form-item>
-        <p class="register__label">Nhập thông tin / đường link <span class="text-danger">*</span></p>
-        <el-form-item prop="info">
-          <el-input v-model="formInfoContact.info" placeholder="Nhập thông tin" maxlength="255"></el-input>
-        </el-form-item>
+        <p class="register__label">Nhập thông tin <span class="text-danger">*</span></p>
+        <div v-if="formInfoContact.key === 'website'">
+          <el-form-item prop="info">
+            <el-input :clearable="true" v-model="formInfoContact.info" placeholder="Tiêu đề" maxlength="255"></el-input>
+          </el-form-item>
+          <el-form-item prop="info1">
+            <el-input :clearable="true" v-model="formInfoContact.info1" placeholder="Đường link" maxlength="255"></el-input>
+          </el-form-item>
+        </div>
+        <div v-else-if="formInfoContact.key === 'note'">
+          <el-form-item prop="info">
+            <el-input :clearable="true" v-model="formInfoContact.info" placeholder="Tiêu đề" maxlength="255"></el-input>
+          </el-form-item>
+          <el-form-item prop="info1">
+            <el-input :clearable="true" type="textarea" v-model="formInfoContact.info1" placeholder="Thông tin ghi chú" maxlength="255"></el-input>
+          </el-form-item>
+        </div>
+        <div v-else-if="formInfoContact.key === 'bank'">
+          <el-form-item prop="info">
+            <el-input :clearable="true" v-model="formInfoContact.info" placeholder="Tên ngân hàng" maxlength="255"></el-input>
+          </el-form-item>
+          <el-form-item prop="info1">
+            <el-input :clearable="true" v-model="formInfoContact.info1" placeholder="Chủ tài khoản" maxlength="255"></el-input>
+          </el-form-item>
+          <el-form-item prop="info2">
+            <el-input :clearable="true" v-model="formInfoContact.info2" placeholder="Số tài khoản" maxlength="255"></el-input>
+          </el-form-item>
+        </div>
+        <div v-else>
+          <el-form-item prop="info">
+            <el-input :clearable="true" v-model="formInfoContact.info" placeholder="Nhập thông tin" maxlength="255"></el-input>
+          </el-form-item>
+        </div>
+
         <div class="actions">
           <el-button
             @click="visibleDialogContact = false"
@@ -163,9 +193,46 @@
       center>
       <el-form :model="formEdit" :rules="rules" status-icon ref="formEdit">
         <p class="register__label">{{getText(formEdit.key, formEdit.info)}} <span class="text-danger">*</span></p>
-        <el-form-item prop="info">
-          <el-input v-model="formEdit.info" placeholder="Nhập thông tin" maxlength="255"></el-input>
-        </el-form-item>
+        <div v-if="formEdit.key === 'website'">
+          <el-form-item prop="info">
+            <el-input
+              v-model="formEdit.info"
+              :clearable="true"
+              placeholder="Tiêu đề"
+              maxlength="255"></el-input>
+          </el-form-item>
+          <el-form-item prop="info1">
+            <el-input
+              v-model="formEdit.info1"
+              :clearable="true"
+              placeholder="Đường link"
+              maxlength="255"></el-input>
+          </el-form-item>
+        </div>
+        <div v-else-if="formEdit.key === 'note'">
+          <el-form-item prop="info">
+            <el-input :clearable="true" v-model="formEdit.info" placeholder="Tiêu đề" maxlength="255"></el-input>
+          </el-form-item>
+          <el-form-item prop="info1">
+            <el-input :clearable="true" type="textarea" :rows="2" v-model="formEdit.info1" placeholder="Thông tin ghi chú" maxlength="255"></el-input>
+          </el-form-item>
+        </div>
+        <div v-else-if="formEdit.key === 'bank'">
+          <el-form-item prop="info">
+            <el-input :clearable="true" v-model="formEdit.info" placeholder="Tên ngân hàng" maxlength="255"></el-input>
+          </el-form-item>
+          <el-form-item prop="info1">
+            <el-input :clearable="true" v-model="formEdit.info1" placeholder="Chủ tài khoản" maxlength="255"></el-input>
+          </el-form-item>
+          <el-form-item prop="info2">
+            <el-input :clearable="true" v-model="formEdit.info2" placeholder="Số tài khoản" maxlength="255"></el-input>
+          </el-form-item>
+        </div>
+        <div v-else>
+          <el-form-item prop="info">
+            <el-input :clearable="true" v-model="formEdit.info" placeholder="Nhập thông tin" maxlength="255"></el-input>
+          </el-form-item>
+        </div>
         <div class="actions">
           <el-button
             @click="visibleDialogEdit = false"
@@ -205,11 +272,15 @@
         background: {},
         formInfoPersonal: {
           key: '',
-          info: ''
+          info: '',
+          info1: '',
+          info2: ''
         },
         formInfoContact: {
           key: '',
-          info: ''
+          info: '',
+          info1: '',
+          info2: ''
         },
         visibleDialogPersonal: false,
         visibleDialogContact: false,
@@ -221,6 +292,14 @@
           info: [
             { required: true, message: 'Vui lòng điền thông tin', trigger: 'blur' },
             { max: 255, message: 'Dữ liệu không hợp lệ', trigger: 'blur' },
+          ],
+          info1: [
+            { required: true, message: 'Vui lòng điền thông tin', trigger: 'blur' },
+            { max: 255, message: 'Dữ liệu không hợp lệ', trigger: 'blur' },
+          ],
+          info2: [
+            { required: true, message: 'Vui lòng điền thông tin', trigger: 'blur' },
+            { max: 255, message: 'Dữ liệu không hợp lệ', trigger: 'blur' },
           ]
         },
         activeName: ['1','2','3'],
@@ -228,7 +307,9 @@
         loadingAddInfoContact: false,
         loadingEdit: false,
         formEdit: {
-          info: ''
+          info: '',
+          info1: '',
+          info2: ''
         }
       }
     },
@@ -357,7 +438,9 @@
             this.loadingEdit = true;
             const data = {
               id: this.formEdit.id,
-              info: this.formEdit.info
+              info: this.formEdit.info,
+              info1: this.formEdit.info1,
+              info2: this.formEdit.info2,
             };
 
             axios.post('update-user-info', data).then((res) => {
@@ -441,6 +524,18 @@
             return 'Giới thiệu';
           case 'bank':
             return 'Tài khoản ngân hàng';
+          case 'wechat':
+            return 'Wechat';
+          case 'note':
+            return 'Ghi chú';
+          case 'whatsapp':
+            return 'Whatsapp';
+          case 'linkedin':
+            return 'Linkedin';
+          case 'soundcloud':
+            return 'Soundcloud';
+          case 'spotify':
+            return 'Spotify';
           default :
             return info;
         }

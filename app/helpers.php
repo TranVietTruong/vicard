@@ -26,6 +26,16 @@ function getTextTemplate($str, $info) {
             return 'Telegram';
         case 'lazada':
             return 'Lazada';
+        case 'wechat':
+            return 'Wechat';
+        case 'whatsapp':
+            return 'Whatsapp';
+        case 'linkedin':
+            return 'Linkedin';
+        case 'soundcloud':
+            return 'Soundcloud';
+        case 'spotify':
+            return 'Spotify';
         default :
             return $info;
     }

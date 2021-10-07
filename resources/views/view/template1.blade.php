@@ -70,6 +70,20 @@
             text-decoration: none;
         }
 
+        li.bank {
+            display: flex;
+            align-items: center;
+        }
+
+        li.bank span {
+            display: block;
+        }
+
+        span.title {
+            font-size: 1.1875em;
+            font-weight: 700;
+        }
+
 
         @media (max-width: 767px) {
             h1 {
@@ -120,16 +134,74 @@
     <div class="container">
         <div style="font-size: 1.25rem">
             @foreach($contact as $value)
-            <ul class="work-list">
-                <li>
-                    <a href="@if($value->key == 'mobilephone')tel:{{$value->info}}@elseif($value->key == 'email')mailto:{{$value->info}}@elseif($value->key == 'bank')#@else{{$value->info}}@endif"
-                        target="_blank"
-                        style="border: none">
-                    <span class="custom_icon"><img src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
-                    {{getTextTemplate($value->key, $value->info)}}
-                    </a>
-                </li>
-            </ul>
+                @if($value->key === 'bank')
+                    <ul class="work-list">
+                        <li class="bank">
+                            <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
+
+                            <div style="margin-left: 3px;">
+                                <span class="title">Ngân hàng: {{$value->info}}</span>
+                                <span>Chủ tài khoản: {{$value->info1}}</span>
+                                <span>Số tài khoản: {{$value->info2}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                @elseif($value->key === 'note')
+                    <ul class="work-list">
+                        <li class="bank">
+                            <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
+
+                            <div style="margin-left: 3px;">
+                                <span class="title">{{$value->info}}</span>
+                                <span style="font-size: 13px;">{{$value->info1}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                @elseif($value->key === 'email')
+                    <ul class="work-list">
+                        <li class="bank">
+                            <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
+
+                            <div style="margin-left: 3px;">
+                                <span class="title">Email</span>
+                                <span>{{$value->info}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                @elseif($value->key === 'mobilephone')
+                    <ul class="work-list">
+                        <li class="bank">
+                            <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
+
+                            <div style="margin-left: 3px;">
+                                <span class="title">Số điện thoại</span>
+                                <span>{{$value->info}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                @elseif($value->key === 'website')
+                    <ul class="work-list">
+                        <li>
+                            <a href="{{$value->info1}}"
+                               target="_blank"
+                               style="border: none;display: flex;align-items: center">
+                                <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
+                                {{$value->info}}
+                            </a>
+                        </li>
+                    </ul>
+                @else
+                    <ul class="work-list">
+                        <li>
+                            <a href="@if($value->key == 'mobilephone')tel:{{$value->info}}@elseif($value->key == 'email')mailto:{{$value->info}}@elseif($value->key == 'bank')#@else{{$value->info}}@endif"
+                               target="_blank"
+                               style="border: none">
+                                <span class="custom_icon"><img src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
+                                {{getTextTemplate($value->key, $value->info)}}
+                            </a>
+                        </li>
+                    </ul>
+                @endif
             @endforeach
         </div>
     </div>

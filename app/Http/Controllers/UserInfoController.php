@@ -56,17 +56,17 @@ class UserInfoController extends Controller
 
     public function createUserInfo(CreateUserInfoRequest $request)
     {
-        if($request->type === 'IMAGE') {
-            $checkExistImage = UserInfo::where('type', 'IMAGE')
-                ->where('key', $request->key)
-                ->where('user_id', auth()->user()->id)
-                ->first();
-            if($checkExistImage) {
-                $checkExistImage->info = $request->info;
-                $checkExistImage->save();
-                return Response::data($checkExistImage, 1);
-            }
-        }
+//        if($request->type === 'IMAGE') {
+//            $checkExistImage = UserInfo::where('type', 'IMAGE')
+//                ->where('key', $request->key)
+//                ->where('user_id', auth()->user()->id)
+//                ->first();
+//            if($checkExistImage) {
+//                $checkExistImage->info = $request->info;
+//                $checkExistImage->save();
+//                return Response::data($checkExistImage, 1);
+//            }
+//        }
 
         $numberInfo = UserInfo::where('type', $request['type'])
                                 ->where('user_id', auth()->user()->id)
@@ -80,6 +80,8 @@ class UserInfoController extends Controller
         $userInfo->type = $request->type;
         $userInfo->key = $request->key;
         $userInfo->info = $request->info;
+        $userInfo->info1 = $request->info1;
+        $userInfo->info2 = $request->info2;
         $userInfo->save();
 
         return Response::data($userInfo, 1);
@@ -89,7 +91,9 @@ class UserInfoController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'id' => 'required|integer',
-            'info' => 'required|max:255'
+            'info' => 'required|max:255',
+            'info1' => 'max:255',
+            'info2' => 'max:255',
         ]);
 
         if($validator->fails()) {
@@ -102,6 +106,8 @@ class UserInfoController extends Controller
         }
 
         $userInfo->info = $request->info;
+        $userInfo->info1 = $request->info1;
+        $userInfo->info2 = $request->info2;
         $userInfo->save();
         return Response::data($userInfo, 1);
     }
