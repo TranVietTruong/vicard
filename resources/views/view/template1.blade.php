@@ -54,34 +54,46 @@
         .custom_icon {
             margin-right: 10px;
         }
-        .intro img {
+        .intro .unit-20 img {
             box-shadow: 1px 1px 5px 0px grey;
         }
 
         .save_contact {
-            width: 100px;
+            width: 140px;
             margin: 0 auto;
             padding: 5px 10px;
             box-shadow: 1px 1px 5px 0px grey;
             border-radius: 5px;
             font-size: 14px;
+            display: flex;
+            align-items: center;
         }
         .save_contact a{
             text-decoration: none;
         }
 
-        li.bank {
+        .bank {
             display: flex;
             align-items: center;
         }
 
-        li.bank span {
+        .bank span {
             display: block;
         }
 
         .span12 {
             font-size: 13px;
             font-weight: normal;
+        }
+        a {
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+
+        .save_contact img {
+            width: 30px;
+            height: 100%;
+            border-radius: inherit;
         }
 
 
@@ -121,7 +133,8 @@
                     @endif
                 </p>
                 <div class="save_contact">
-                    <a href="{{asset('/save-contact/'.$userId)}}">Lưu danh bạ</a>
+                    <img src="{{asset('assets/icon_template1/save_contact.png')}}" alt="">
+                    <a href="{{asset('/save-contact/'.$userId)}}"> Lưu danh bạ</a>
                 </div>
             </div>
         </div>
@@ -162,29 +175,29 @@
                         </li>
                     </ul>
                 @elseif($value->key === 'email')
-                    <ul class="work-list">
-                        <li class="bank">
-                            <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
 
-                            <div style="margin-left: 3px;">
-                                <a href="mailto:{{$value->info}}">
+                    <ul class="work-list">
+                        <li >
+                            <a class="bank" href="mailto:{{$value->info}}">
+                                <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
+                                <div style="margin-left: 3px;">
                                     <span class="title">Email</span>
                                     <span class="span12">{{$value->info}}</span>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </li>
                     </ul>
+
                 @elseif($value->key === 'mobilephone')
                     <ul class="work-list">
-                        <li class="bank">
+                        <li >
+                            <a class="bank" href="tel:{{$value->info}}">
                             <span class="custom_icon"><img style="min-width:30px;" src="{{asset('assets/icon_template1/'.$value->key.'.png')}}" alt=""></span>
-
                             <div style="margin-left: 3px;">
-                                <a href="tel:{{$value->info}}">
-                                    <span class="title">Số điện thoại</span>
-                                    <span class="span12">{{$value->info}}</span>
-                                </a>
+                                <span class="title">Số điện thoại</span>
+                                <span class="span12">{{$value->info}}</span>
                             </div>
+                            </a>
                         </li>
                     </ul>
                 @elseif($value->key === 'website')
