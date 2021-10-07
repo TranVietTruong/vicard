@@ -79,11 +79,13 @@
 
         .bank span {
             display: block;
+            line-height: normal;
         }
 
         .span12 {
             font-size: 13px;
             font-weight: normal;
+            line-height: normal;
         }
         a {
             text-decoration: none !important;
@@ -95,7 +97,14 @@
             height: 100%;
             border-radius: inherit;
         }
-
+        ::-webkit-scrollbar {
+            width: 0;  /* Remove scrollbar space */
+            background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        /* Optional: show position indicator in red */
+        ::-webkit-scrollbar-thumb {
+            background: #FF0000;
+        }
 
         @media (max-width: 767px) {
             h1 {
