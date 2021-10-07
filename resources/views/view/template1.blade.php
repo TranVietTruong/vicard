@@ -164,8 +164,8 @@
                             <div style="margin-left: 3px;">
                                 <a>
                                 <span class="title">{{$value->info}}</span>
-                                <span class="span12">Chủ tài khoản: {{$value->info1}}</span>
-                                <span class="span12">Số tài khoản: {{$value->info2}}</span>
+                                <span class="span12">{{$value->info1}}</span>
+                                <span class="span12">{{$value->info2}}</span>
                                 </a>
                             </div>
                         </li>
