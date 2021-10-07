@@ -78,8 +78,50 @@
                         </div>
                     </div>
                 </a>
+            @elseif($value->key === 'bank')
+                <a><!--edit -->
+                    <div id="rowb">
+                        <div id="row">
+                            <div id="rowl">
+                                <img src="{{asset('assets/icon_template2/'.$value->key.'.png')}}">
+                            </div>
+                            <div id="rowr">
+                                <div id="td">{{$value->info}}</div><!--edit -->
+                                <div class="nd">{{$value->info1}}</div><!--edit -->
+                                <div class="nd">{{$value->info2}}</div><!--edit -->
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            @elseif($value->key === 'note')
+                <a><!--edit -->
+                    <div id="rowb">
+                        <div id="row">
+                            <div id="rowl">
+                                <img src="{{asset('assets/icon_template2/'.$value->key.'.png')}}">
+                            </div>
+                            <div id="rowr">
+                                <div id="td">{{$value->info}}</div><!--edit -->
+                                <div class="nd">{{$value->info1}}</div><!--edit -->
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            @elseif($value->key === 'website')
+                <a><!--edit -->
+                    <div id="rowb">
+                        <div id="row">
+                            <div id="rowl">
+                                <img src="{{asset('assets/icon_template2/'.$value->key.'.png')}}">
+                            </div>
+                            <div id="rowr">
+                                <div id="td">{{$value->info}}</div><!--edit -->
+                            </div>
+                        </div>
+                    </div>
+                </a>
             @else
-                <a href="@if($value->key == 'bank')#@else{{$value->info}}@endif"><!--edit -->
+                <a href="{{$value->info}}"><!--edit -->
                     <div id="rowb">
                         <div id="row">
                             <div id="rowl">
