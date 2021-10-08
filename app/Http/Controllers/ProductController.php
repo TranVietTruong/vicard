@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function listProduct() {
-        $products = Product::all();
+        $products = Product::where('status', 1)->get();
         return Response::data($products);
     }
 }
