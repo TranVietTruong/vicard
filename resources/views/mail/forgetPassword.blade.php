@@ -15,10 +15,10 @@
             <img style="width: 100px; margin-left: -3px;" src="https://res.cloudinary.com/truongtv/image/upload/v1631778979/logo/yqbfngewf7meym3n0wp2.png" alt="">
             <div class="text-header" style="color: #364560;line-height: 17px;text-align: right;margin-left: auto;">
                 <div class="th-hotline">
-                    Hotline: <span style="color: #33C3F0;">0333100001</span>
+                    Hotline: <span style="color: #15c;">0373048419</span>
                 </div>
                 <div class="th-status">
-                    Trạng thái: <span style="color: #73BF44">Quên mật khẩu</span>
+                    Trạng thái: <span style="color: #15c">Quên mật khẩu</span>
                 </div>
             </div>
         </div>
@@ -36,13 +36,13 @@
         <div class="reguard" style="margin-top: 15px; line-height: 16px;">
             <div>Nếu bạn cần hỗ trợ trong quá trình sử dụng dịch vụ của Vicard, vui lòng liên hệ:</div>
             <div>Email: vicard.vn@gmail.vn</div>
-            <div>Hotline: 0333100001</div>
+            <div>Hotline: 0373048419</div>
         </div>
         <div style="margin-top: 16px; font-size: 11px">
             Trân trọng !
         </div>
         <div style="margin-top: 8px; font-size: 11px">
-            Đội ngũ	<a href="https://vicard.vn" title="colearn" target="_blank" style="color: #33C3F0; text-decoration: underline;">vicard.vn</a>
+            Đội ngũ	<a href="https://vicard.vn" title="colearn" target="_blank" style="color: #15c; text-decoration: underline;">vicard.vn</a>
         </div>
         <div style="margin-top: 24px; height: 1px; background: #BFBFBF"></div>
         <div style="margin-top: 16px; text-align: center; color: #707070; font-size: 9px; line-height: 11px">Vicard Copyright © 2021. All Rights Reserved. Privacy | Terms</div>
