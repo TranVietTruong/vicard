@@ -12,7 +12,7 @@ class ViewController extends Controller
     {
         $user = User::where('status', 1)->where('code_tag', $codeTag)->first();
         if(!$user) {
-            return redirect('/404');
+            return view('newUser');
         }
 
         if(!$user->template_code) {
