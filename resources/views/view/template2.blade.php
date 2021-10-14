@@ -108,7 +108,7 @@
                     </div>
                 </a>
             @elseif($value->key === 'website')
-                <a><!--edit -->
+                <a href="{{$value->info1}}"><!--edit -->
                     <div id="rowb">
                         <div id="row">
                             <div id="rowl">
